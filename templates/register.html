@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-card">
+        <span class="section-kicker">Start your workspace</span>
+        <h3>Create account</h3>
+        <p>Set up your developer dashboard.</p>
+        <form method="post" action="{{ url_for('auth.register') }}">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" class="form-control" name="email" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Register</button>
+        </form>
+        <div class="auth-actions">
+            <a href="{{ url_for('auth.login') }}">Already have an account?</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

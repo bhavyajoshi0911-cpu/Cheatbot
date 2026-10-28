@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="auth-shell">
+    <div class="auth-card">
+        <span class="section-kicker">Cheatbot workspace</span>
+        <h3>Welcome back</h3>
+        <p>Sign in to your Cheatbot workspace.</p>
+        <form method="post" action="{{ url_for('auth.login') }}">
+            <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="password" class="form-control" name="password" required>
+            </div>
+            <button class="btn btn-primary w-100" type="submit">Login</button>
+        </form>
+        <div class="auth-actions">
+            <a href="{{ url_for('auth.register') }}">Create an account</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

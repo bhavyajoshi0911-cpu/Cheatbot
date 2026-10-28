@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel-card page-content">
+    <div class="section-header">
+        <div><span class="section-kicker">Tune your workspace</span><h3>Settings</h3></div>
+    </div>
+    <div class="settings-grid">
+        <div class="setting-block">
+            <h4>Theme</h4>
+            <div class="theme-switcher">
+                <button class="btn btn-light active" type="button" data-theme="light" aria-pressed="true">☀️ Light</button>
+                <button class="btn btn-dark" type="button" data-theme="dark" aria-pressed="false">🌙 Dark</button>
+            </div>
+        </div>
+        <div class="setting-block">
+            <h4>Launcher Safety</h4>
+            <p>Only allowlisted local apps may be opened from this dashboard.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

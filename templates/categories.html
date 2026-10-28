@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel-card page-content">
+    <div class="section-header">
+        <div><span class="section-kicker">Organize your workflow</span><h3>Categories</h3></div>
+    </div>
+    <div class="category-grid">
+        {% for category in categories %}
+        <div class="category-box">
+            <h4>{{ category.icon }} {{ category.name }}</h4>
+            <ul>
+                {% for resource in resources %}
+                    {% if resource.category_id == category.id %}
+                        <li>{{ resource.icon }} {{ resource.name }}</li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

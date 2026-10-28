@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel-card page-content">
+    <div class="section-header">
+        <div><span class="section-kicker">See your rhythm</span><h3>Usage analytics</h3></div>
+    </div>
+    <div class="analytics-grid">
+        <div class="chart-card">
+            <h4>Resource Usage</h4>
+            <ul>
+                {% for item in resource_usage %}
+                    <li>{{ item.name }}: {{ item.count }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="chart-card">
+            <h4>Category Usage</h4>
+            <ul>
+                {% for item in category_usage %}
+                    <li>{{ item.name }}: {{ item.count }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="panel-card page-content">
+    <div class="section-header">
+        <div><span class="section-kicker">Always within reach</span><h3>My favorites</h3></div>
+    </div>
+    {% if favorites %}
+        <div class="results-grid compact-grid">
+            {% for resource in favorites %}
+            <article class="resource-card">
+                <div class="resource-header">
+                    <div class="resource-icon">{{ resource.icon }}</div>
+                    <div>
+                        <h4>{{ resource.name }}</h4>
+                        <span class="resource-category">{{ resource.category_name or 'General' }}</span>
+                    </div>
+                </div>
+                <p>{{ resource.description or 'Useful resource' }}</p>
+                <div class="resource-footer">
+                    <form method="post" action="{{ url_for('dashboard.toggle_favorite', resource_id=resource.id) }}">
+                        <button class="btn btn-outline-secondary" type="submit">Remove</button>
+                    </form>
+                    <form method="post" action="{{ url_for('dashboard.launch_resource', resource_id=resource.id) }}">
+                        <button class="btn btn-primary" type="submit">Open</button>
+                    </form>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-box">
+            <div class="empty-icon">⭐</div>
+            <h4>No favorite resources yet.</h4>
+            <a href="{{ url_for('dashboard.dashboard_home') }}" class="btn btn-primary">Add Favorite</a>
+        </div>
+    {% endif %}
+</section>
+{% endblock %}
